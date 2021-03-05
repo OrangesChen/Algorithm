@@ -4,7 +4,7 @@ from Common.matrix import MatrixSolution
 
 
 class MatrixTest(unittest.TestCase):
-    def __init__(self, methodName='runTest'):
+    def __init__(self, methodName="runTest"):
         super().__init__(methodName)
         self.s = MatrixSolution()
 
@@ -15,5 +15,5 @@ class MatrixTest(unittest.TestCase):
         self.assertEqual(r, [1, 2, 3, 4])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

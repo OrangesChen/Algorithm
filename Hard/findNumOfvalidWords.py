@@ -83,7 +83,7 @@ class Solution:
         for word in words:
             mask = 0
             for ch in word:
-                mask |= (1 << (ord(ch) - ord("a")))
+                mask |= 1 << (ord(ch) - ord("a"))
             if str(bin(mask)).count("1") <= 7:
                 frequency[mask] += 1
 
@@ -104,7 +104,7 @@ class Solution:
             # 枚举子集方法二
             mask = 0
             for i in range(1, 7):
-                mask |= (1 << (ord(puzzle[i]) - ord("a")))
+                mask |= 1 << (ord(puzzle[i]) - ord("a"))
 
             subset = mask
             while subset:

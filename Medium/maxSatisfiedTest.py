@@ -13,5 +13,5 @@ class MaxSatisfiedTest(unittest.TestCase):
         self.assertEqual(r, 16)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
