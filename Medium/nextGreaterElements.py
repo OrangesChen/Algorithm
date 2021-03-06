@@ -50,3 +50,20 @@ class Solution:
             print(stack)
             print(res)
         return res
+
+    # 二分查找 已排序数组
+    def searchBin(self, nums: List[int], x: int):
+        return self.findBinary(nums, x, 0, len(nums) - 1)
+
+    def findBinary(self, nums: List[int], x: int, left: int, right: int) -> int:
+        if left > right:
+            return -1
+        mid = int((right - left) / 2) + left
+        if x == nums[mid]:
+            return mid
+        else:
+            if x < nums[mid]:
+                right = mid - 1
+            else:
+                left = mid + 1
+            return self.findBinary(nums, x, left, right)
