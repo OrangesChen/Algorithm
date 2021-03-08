@@ -19,8 +19,8 @@ class MyTestCase(unittest.TestCase):
     def test_searchBinary(self):
         s = Solution()
         nums = [1, 2, 3, 4, 5, 6]
-        r = s.searchBin(nums, 1)
-        self.assertEqual(r, 0)
+        r = s.searchBin(nums, 6)
+        self.assertEqual(r, 5)
 
 
 if __name__ == "__main__":
