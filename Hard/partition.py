@@ -7,7 +7,6 @@
 class Solution:
     # 判断字符串是否为回文
     def is_palindrome(self, p):
-        print(p[::-1])
         return p == p[::-1]
 
     def partition(self, s):
@@ -23,7 +22,6 @@ class Solution:
         for i in range(1, len(s) + 1):
             r = self.is_palindrome(s[:i])
             if r:
-                print([s[:i]])
                 self.backtrack(s[i:], res, path + [s[:i]])
 
     def minCut(self, s: str) -> int:
