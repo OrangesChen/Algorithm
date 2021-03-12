@@ -27,6 +27,19 @@ class MyTestCase(unittest.TestCase):
         r = s.calculate("2-4-(8+2-6+(8+4-(1)+8-10))")
         self.assertEqual(r, -15)
 
+    def test_cal2(self):
+        s = Solution()
+        r = s.calculate2("14/3*2")
+        self.assertEqual(r, 8)
+        # r = s.calculate2(" 3/2 ")
+        # self.assertEqual(r, 1)
+        # r = s.calculate2(" 3+5 / 2 ")
+        # self.assertEqual(r, 5)
+        # r = s.calculate2("1")
+        # self.assertEqual(r, 1)
+        # r = s.calculate2("0-2147483647")
+        # self.assertEqual(r, -2147483647)
+
 
 if __name__ == "__main__":
     unittest.main()

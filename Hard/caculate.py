@@ -119,3 +119,64 @@ class Solution:
                 res += stk.pop()
         res += sign * num
         return res
+
+    # 227.基本计算器 II
+    # 示例 1：
+    #
+    # 输入：s = "3+2*2"
+    # 输出：7
+    # 示例 2：
+    #
+    # 输入：s = " 3/2 "
+    # 输出：1
+    # 示例 3：
+    #
+    # 输入：s = " 3+5 / 2 "
+    # 输出：5
+    #
+    # 来源：力扣（LeetCode）
+    # 链接：https://leetcode-cn.com/problems/basic-calculator-ii
+    # 1 先计算* / 法 最后再算加减法
+
+    def operation(self, operation, a, b):
+        if operation == "/":
+            return int(a / b)
+        elif operation == "*":
+            return a * b
+
+    # 227. 基本计算器 II
+    def calculate2(self, s: str) -> int:
+        num, res, operation, sign = 0, 0, None, 1
+        stk = []
+        for ch in s:
+            if ch.isdigit():
+                num = 10 * num + int(ch)
+            elif ch == "+" or ch == "-":
+                if operation:
+                    res = self.operation(operation, stk.pop(), num)
+                    stk.append(res)
+                    operation = None
+                else:
+                    res += sign * num
+                    stk.append(res)
+                num = 0
+                res = 0
+                sign = 1 if ch == "+" else -1
+            elif ch == "/" or ch == "*":
+                if operation:
+                    res = self.operation(operation, stk.pop(), num)
+                else:
+                    res += sign * num
+                stk.append(res)
+                operation = ch
+                num = 0
+                res = 0
+                sign = 1
+        # 将栈中最后一位数据加入
+        if operation:
+            res = self.operation(operation, stk.pop(), num)
+            stk.append(res)
+        else:
+            res = num * sign
+            stk.append(res)
+        return sum(stk)
