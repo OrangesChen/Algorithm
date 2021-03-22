@@ -28,10 +28,10 @@ class Solution:
         n = len(s)
         dp = [n] * n
         for i in range(n):
-            if self.is_palindrome(s[0 : i + 1]):
+            if self.is_palindrome(s[0: i + 1]):
                 dp[i] = 0
                 continue
             for j in range(i):
-                if self.is_palindrome(s[j + 1 : i + 1]):
+                if self.is_palindrome(s[j + 1: i + 1]):
                     dp[i] = min(dp[i], dp[j] + 1)
         return dp[n - 1]
